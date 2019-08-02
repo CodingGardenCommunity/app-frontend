@@ -1,5 +1,5 @@
 <template>
-  <div class="page">
+  <div class="view-container">
     Videos page
   </div>
 </template>

@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <div id="topnav">
-      <router-link to="/menu" id="menu-icon">
+      <div id="menu-icon" v-on:click="toggleMenu">
         |||
-      </router-link>
+      </div>
       <div id="filter-by">
         <div class="label">filter by:</div>
         <Leaves/>
@@ -12,8 +12,16 @@
         <input type="text" placeholder="search"/>
       </div>
     </div>
-    <router-view/>
-    <div id="bottomnav">
+    <div class="app-container">
+      <div
+        :class="sidebarOpen ? 'open' : ''"
+        class="side-bar"
+      >
+        <ul class="side-bar-menu"></ul>
+      </div>
+      <router-view class="router-view"/>
+    </div>
+    <!-- <div id="bottomnav">
       <router-link to="/videos">
         <img src="videos-icon.svg"/><br/>
         Videos
@@ -30,7 +38,7 @@
         <img src="contributors-icon.svg"/><br/>
         Contributors
       </router-link>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -39,9 +47,19 @@ import Leaves from './components/Leaves.vue';
 
 export default {
   name: 'App',
+  data() {
+    return {
+      sidebarOpen: false,
+    }
+  },
   components: {
     Leaves,
   },
+  methods: {
+    toggleMenu: function(){
+      this.sidebarOpen = !this.sidebarOpen;
+    }
+  }
 };
 </script>
 
@@ -124,5 +142,24 @@ body{
     color: white;
     text-decoration: none;
     padding-top: 25px;
+}
+.app-container {
+  display: flex;
+  height: 100%;
+}
+.side-bar {
+  min-width: 0;
+}
+.side-bar.open {
+  min-width: 20rem;
+}
+.side-bar-menu{
+  padding:0;
+  margin:0;
+  background-color:red;
+}
+.router-view {
+  flex: 4;
+  background: #000;
 }
 </style>
