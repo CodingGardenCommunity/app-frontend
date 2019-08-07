@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'menu',
+  name: 'menu_page',
   components: {},
 };
 </script>
