@@ -11,21 +11,6 @@
       <div class="topnav-collapse-wrapper">
         <div class="topnav-app-name">Community App</div>
       </div>
-      <div class="topnav-circle-icon">
-        <i class="fa fa-facebook"></i>
-      </div>
-      <div class="topnav-circle-icon">
-        <i class="fa fa-youtube"></i>
-      </div>
-      <div class="topnav-circle-icon">
-        <i class="fa fa-reddit"></i>
-      </div>
-      <div class="topnav-circle-icon">
-        <i class="fa fa-github"></i>
-      </div>
-      <div class="topnav-circle-icon">
-        <i class="fa fa-cog"></i>
-      </div>
     </div>
     <div class="app-container">
       <router-view class="router-view"/>
@@ -60,7 +45,6 @@ export default {
 
 <style>
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.40.2/codemirror.css');
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 @import url('./assets/css/main.css');
 
