@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="topnav">
-      <div id="menu-icon" v-on:click="toggleMenu">
+      <div id="menu-icon" @click="toggleMenu">
         |||
       </div>
       <div id="filter-by">
@@ -50,21 +50,28 @@ export default {
   data() {
     return {
       sidebarOpen: false,
-    }
+      menuData: [
+        { label: 'videos', asdf: 'videos-icon.svg' },
+        { label: 'history', asdf: 'history-icon.svg' },
+        { label: 'FAQ', asdf: 'faq-icon.svg' },
+        { label: 'contributors', asdf: 'contributors-icon.svg' },
+      ],
+    };
   },
   components: {
     Leaves,
   },
   methods: {
-    toggleMenu: function(){
+    toggleMenu() {
       this.sidebarOpen = !this.sidebarOpen;
-    }
-  }
+    },
+  },
 };
 </script>
 
 
 <style>
+@import url('./assets/css/main.css');
 body{
   margin: 0;
   padding: 0;
