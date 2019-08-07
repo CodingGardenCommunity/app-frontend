@@ -20,17 +20,24 @@ export default {
     frontend: Boolean,
     devops: Boolean,
   },
+  data() {
+    return {};
+  },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.leaves{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 .leaf{
-    float: left;
-    width: 15px;
-    height: 28px;
-    margin-right: 8px;
-    border-radius: 15px 0 15px 0;
-    background-color: #bbb;
+  width: 15px;
+  height: 28px;
+  margin: 12px 2px;
+  border-radius: 15px 0 15px 0;
+  background-color: #bbb;
 }
 </style>
