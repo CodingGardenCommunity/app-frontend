@@ -19,6 +19,7 @@
 
 <script>
 import Leaves from '../components/Leaves.vue';
+import fetch from 'node-fetch'
 
 export default {
   name: 'Contributors',
