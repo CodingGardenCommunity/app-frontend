@@ -20,7 +20,7 @@ jobs:
     ### START DEPLOY STAGE ###
     - stage: deploy
       name: "Deploy to now.sh"
-      if: branch = develop OR branch = staging OR branch = master
+      if: branch = develop OR branch = master
       script: skip
       deploy:
         provider: script
