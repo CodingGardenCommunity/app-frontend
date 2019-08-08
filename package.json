@@ -6,6 +6,7 @@
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
+        "deploy": "bash ./deploy.sh",
         "test:unit": "vue-cli-service test:unit",
         "format": "prettier --write src/**/*.js"
     },

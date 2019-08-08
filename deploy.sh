@@ -4,7 +4,7 @@ function usage() {
     echo "Usage: $(basename "$0") [option...] {development|staging|production}" >&2
     echo
     echo "  Coding Garden Community App frontend deployment script"
-    echo "  Deploys the API to the specified environment on now.sh"
+    echo "  Deploys the frontend to the specified environment on now.sh"
     echo
     echo "   -h, --help                 Show this message"
     echo "   -n, --now-token            Specify the now token. (or set environment variable \$NOW_TOKEN)"

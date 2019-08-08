@@ -15,7 +15,7 @@ jobs:
   include:
     ### START TEST STAGE ###
     - stage: test
-      script: npm run lint && npm run test
+      script: npm run lint && npm run test:unit
     ### END TEST STAGE ###
     ### START DEPLOY STAGE ###
     - stage: deploy
