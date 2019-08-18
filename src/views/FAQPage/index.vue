@@ -35,7 +35,7 @@ const FAQPage = {
   created() {
     fetch('http://kyojingames.com:3005/faq')
       .then(n => n.json())
-      .then(json => {
+      .then((json) => {
         this.dataItems = json.map(n => ({
           ...n.attributes,
           isOpen: false,
@@ -44,7 +44,7 @@ const FAQPage = {
   },
   methods: {
     toggleAccordion(question) {
-      this.dataItems = this.dataItems.map(e => {
+      this.dataItems = this.dataItems.map((e) => {
         if (e.question === question) {
           return { ...e, isOpen: !e.isOpen };
         }
