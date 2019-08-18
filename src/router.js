@@ -2,7 +2,8 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Menu from './views/Menu.vue';
 import History from './views/History.vue';
-import FAQ from './views/FAQ.vue';
+// eslint-disable-next-line import/extensions
+import FAQPage from './views/FAQPage';
 import Videos from './views/Videos.vue';
 import Contributors from './views/Contributors.vue';
 
@@ -30,7 +31,7 @@ export default new Router({
     {
       path: '/faq',
       name: 'faq',
-      component: FAQ,
+      component: FAQPage,
     },
     {
       path: '/videos',
