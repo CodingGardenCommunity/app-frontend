@@ -67,9 +67,6 @@ elif [ -n "$TRAVIS_BRANCH" ]; then
     develop)
       env=development
       ;;
-    staging)
-      env=staging
-      ;;
     master)
       env=production
       ;;
@@ -88,14 +85,6 @@ case "$env" in
     fi
     if [ -z "$DEPLOY_ALIAS" ]; then
       DEPLOY_ALIAS=web-dev.coding.garden
-    fi
-    ;;
-  staging)
-    if [ -z "$NODE_ENV" ]; then
-      NODE_ENV=development
-    fi
-    if [ -z "$DEPLOY_ALIAS" ]; then
-      DEPLOY_ALIAS=web-staging.coding.garden
     fi
     ;;
   production)
