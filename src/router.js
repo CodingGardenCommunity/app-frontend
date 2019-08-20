@@ -2,8 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Menu from './views/Menu.vue';
 import History from './views/History.vue';
-// eslint-disable-next-line import/extensions
-import FAQPage from './views/FAQPage';
+import FAQPage from './views/FAQPage/index.vue';
 import Videos from './views/Videos.vue';
 import Contributors from './views/Contributors.vue';
 

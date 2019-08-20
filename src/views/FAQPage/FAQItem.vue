@@ -1,21 +1,21 @@
 <template>
-  <Fragment>
-    <div class="faq-question" @click="() => toggleAccordion(question)">{{ question }}</div>
+  <div>
+    <div class="faq-question" @click="toggleAccordion(question)" v-text="question" />
     <div class="faq-answer">
-      <div class="answer">{{ answer }}</div>
+      <div class="answer" v-text="answer" />
     </div>
-  </Fragment>
+  </div>
 </template>
-<script>
-import { Fragment } from 'vue-fragment';
 
+<script>
 const FAQItem = {
   name: 'faqitem',
-  components: {
-    Fragment,
-  },
 
-  props: ['question', 'answer', 'toggleAccordion'],
+  props: {
+    question: String,
+    answer: String,
+    toggleAccordion: Function,
+  },
 };
 
 export default FAQItem;
@@ -25,7 +25,7 @@ export default FAQItem;
 .faq-question {
   cursor: pointer;
   font-size: 18px;
-  padding: 5px;
+  padding: 0.25rem;
   padding-left: 15px;
   text-align: left;
   color: orange;

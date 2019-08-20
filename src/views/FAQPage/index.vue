@@ -1,26 +1,25 @@
 <template>
   <div class="view-container">
-    <div class="data-list faq-data-list">
-      <div
+    <ul class="data-list faq-data-list">
+      <li
         v-for="(item, index) in dataItems"
         :key="index"
         class="data-item faq-data-item initBorder"
         :class="{'isClosed': !item.isOpen}"
       >
-        <FAQ-Item
+        <FAQItem
           v-bind:question="item.question"
           v-bind:answer="item.answer"
           v-bind:toggleAccordion="toggleAccordion"
         />
-      </div>
-    </div>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
 import fetch from 'node-fetch';
-// eslint-disable-next-line import/extensions
-import FAQItem from './FAQItem';
+import FAQItem from './FAQItem.vue';
 
 const FAQPage = {
   name: 'faq',
