@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <!-- refactor to Nav component -->
     <div class="topnav" @mouseleave="closeMenu">
       <div id="menu_button" class="topnav-icon" @click="toggleMenu">
         <i class="fa fa-navicon"></i>
@@ -12,6 +13,7 @@
         <div class="topnav-app-name">Community App</div>
       </div>
     </div>
+
     <div class="app-container">
       <router-view class="router-view"/>
     </div>

@@ -58,8 +58,8 @@
 </template>
 
 <script>
+// import fetch from 'node-fetch';
 import Leaves from '@/components/Leaves.vue';
-import fetch from 'node-fetch';
 
 export default {
   name: 'History',

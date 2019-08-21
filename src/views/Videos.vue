@@ -3,44 +3,40 @@
     <div class="view-header">
       <h1>Videos</h1>
     </div>
-    <div class="data-list video-data-list">
-      <div v-for="(item, index) in dataItems" :key="index" class="data-item video-data-item">
-        <div class="video-type">{{ item.type }}</div>
-        <div class="video-name">{{ item.name }}</div>
-        <div class="video-videoID">{{ item.videoID }}</div>
-        <div class="video-date">{{ item.date }}</div>
-        <div class="video-description">{{ item.description }}</div>
-        <div class="video-url">{{ item.url }}</div>
-        <div class="video-thumbnail">{{ item.thumbnail }}</div>
-        <div class="video-createdAt">{{ item.createdAt }}</div>
-        <div class="video-updatedAt">{{ item.updatedAt }}</div>
-      </div>
-    </div>
+    <ul class="data-list video--list">
+      <li v-for="(video, index) in videos" :key="index" class="data-item video--item">
+        <div class="video--name">{{ video.name }}</div>
+        <div class="video--videoID">{{ video.videoID }}</div>
+        <div class="video--date">{{ video.date }}</div>
+        <div class="video--description">{{ video.description }}</div>
+        <div class="video--url">{{ video.url }}</div>
+        <div class="video--thumbnail">{{ video.thumbnail }}</div>
+        <div class="video--createdAt">{{ video.createdAt }}</div>
+        <div class="video--updatedAt">{{ video.updatedAt }}</div>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-import fetch from 'node-fetch';
+// import fetch from 'node-fetch';
 
 export default {
   name: 'Video',
   components: {},
-  data() {
-    return {
-      dataItems: [],
-    };
+  computed: {
+    videos() {
+      return this.$store.state.videosData.videoList.map(video => video.attributes);
+    },
   },
   created() {
-    fetch('http://kyojingames.com:3005/video')
-      .then(n => n.json())
-      .then((json) => {
-        //  console.log(json);
-        this.dataItems = json.map(n => n.attributes);
-      });
+    this.$store.dispatch('API_VideosDataRequest_ACTION');
   },
 };
 </script>
 
 <style scoped>
-
+ul {
+  list-style: none;
+}
 </style>

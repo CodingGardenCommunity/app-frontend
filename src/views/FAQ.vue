@@ -4,12 +4,12 @@
       <h1>FAQ</h1>
     </div>
     <div class="data-list faq-data-list">
-      <div v-for="(item, index) in dataItems" :key="index"
-      class="data-item faq-data-item initBorder" :class="{'isClosed': !item.isOpen}">
-        <div class="faq-question" @click="() => toggleAccordion(item)">{{ item.question }}</div>
+      <div v-for="(faq, index) in faqList" :key="index"
+      class="data-item faq-data-item initBorder" :class="{'isClosed': !faq.isOpen}">
+        <div class="faq-question" @click="toggleAccordion(index)">{{ faq.question }}</div>
         <div class="faq-answer">
           <div class="answer">
-            {{ item.answer }}
+            {{ faq.answer }}
           </div>
           <!-- Do we need createdAt updatedAt on FAQ? -->
           <!-- <div class="faq-createdAt">{{ item.createdAt }}</div> |  -->
@@ -21,31 +21,27 @@
 </template>
 
 <script>
-import fetch from 'node-fetch';
+// import fetch from 'node-fetch';
 
 export default {
   name: 'faq',
   components: {},
-  data() {
-    return {
-      dataItems: [],
-    };
+  computed: {
+    faqList() {
+      return this.$store.state.faqData.faqList.map(faq => faq.attributes);
+    },
   },
   created() {
-    fetch('http://kyojingames.com:3005/faq')
-      .then(n => n.json())
-      .then((json) => {
-        this.dataItems = json.map(n => ({
-          ...n.attributes,
-          isOpen: false,
-        }));
-      });
+    this.$store.dispatch('API_FaqDataRequest_ACTION');
   },
 
   methods: {
-    toggleAccordion(item) {
-      this.dataItems = this.dataItems.map(
-        e => (e.question === item.question
+    // toggleAccordion(index) {
+
+    // }
+    toggleAccordion(index) {
+      this.temp_______selectedFAQ = this.faqList.map(
+        e => (e.question === index.question
           ? { ...e, isOpen: !e.isOpen }
           : { ...e, isOpen: false }),
       );

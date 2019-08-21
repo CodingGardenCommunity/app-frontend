@@ -4,13 +4,17 @@
       <h1>Contributors</h1>
     </div>
     <div class="data-list contributors-data-list">
-      <div v-for="(item, index) in dataItems" :key="index" class="data-item contributors-data-item">
+      <div
+        v-for="(contributor, index) in contributorsList"
+        :key="index"
+        class="data-item contributors-data-item"
+      >
         <div class="contributors-background"></div>
-        <div class="contributors-username">{{ item.username }}</div>
-        <div class="contributors-name">{{ item.name }}</div>
-        <div class="contributors-image"><img :src="item.image"/></div>
+        <div class="contributors-username">{{ contributor.username }}</div>
+        <div class="contributors-name">{{ contributor.name }}</div>
+        <div class="contributors-image"><img :src="contributor.image"/></div>
         <div class="contributors-teamIds">
-          <Leaves :options="item.teamIds"/>
+          <Leaves :options="contributor.teamIds"/>
         </div>
       </div>
     </div>
@@ -18,7 +22,7 @@
 </template>
 
 <script>
-import fetch from 'node-fetch';
+// import fetch from 'node-fetch';
 import Leaves from '../components/Leaves.vue';
 
 export default {
@@ -26,18 +30,15 @@ export default {
   components: {
     Leaves,
   },
-  data() {
-    return {
-      dataItems: [],
-    };
+  computed: {
+    contributorsList() {
+      return this.$store.state.contributorsData.contributorsList.map(
+        contributor => contributor.attributes,
+      );
+    },
   },
   created() {
-    fetch('http://kyojingames.com:3005/contributors')
-      .then(n => n.json())
-      .then((json) => {
-        //  console.log(JSON.stringify(json, null, 4));
-        this.dataItems = json.map(n => n.attributes);
-      });
+    this.$store.dispatch('API_ContributorsDataRequest_ACTION');
   },
 };
 </script>
