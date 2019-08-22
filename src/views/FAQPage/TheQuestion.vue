@@ -2,8 +2,6 @@
   <div class="faq-question" @click="toggleAccordion(question)" v-text="question" />
 </template>
 
-
-
 <script>
 export default {
   name: 'TheQuestion',
