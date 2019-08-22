@@ -1,11 +1,6 @@
 <template>
   <ul class="data-list faq-data-list">
-    <li
-      v-for="(item, index) in dataItems"
-      :key="index"
-      class="data-item faq-data-item initBorder"
-      :class="{'isClosed': !item.isOpen}"
-    >
+    <li v-for="(item, index) in dataItems" :key="index" class="data-item faq-data-item initBorder" :class="{ isClosed: !item.isOpen }">
       <TheQuestion :question="item.question" :toggleAccordion="toggleAccordion" />
       <TheAnswer :answer="item.answer" />
     </li>
