@@ -1,5 +1,5 @@
 <template>
-  <ul class="data-list faq-data-list">
+  <ul v-if="dataItems.length" class="data-list faq-data-list">
     <li
       v-for="(item, index) in dataItems"
       :key="index"
