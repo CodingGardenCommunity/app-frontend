@@ -1,6 +1,9 @@
 <template>
   <div id="footer">
-    <span> {{ `&copy; ${year}` }} | Built with love by <a target="_blank" href="https://github.com/orgs/CodingGardenCommunity/people">CodingGarden Community</a> </span>
+    <span>
+      &copy; {{ year }} | Built with love by
+      <router-link to="/contributors">CodingGarden Community</router-link>
+    </span>
   </div>
 </template>
 
