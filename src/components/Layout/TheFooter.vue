@@ -24,7 +24,7 @@ export default {
   min-height: 50px;
   color: black;
   background-color: white;
-  box-shadow: 0 0 10px -8px black;
+  border-top: 2px solid #0000000a;
 }
 span {
   flex: 1;
