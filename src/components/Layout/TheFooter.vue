@@ -1,8 +1,8 @@
 <template>
   <div id="footer">
     <span>
-      &copy; {{ year }} | Built with love by
-      <router-link to="/contributors">CodingGarden Community</router-link>
+      &copy; {{ year }} | Built with 💗 by
+      <router-link to="/contributors">The Coding Garden Community</router-link>
     </span>
   </div>
 </template>
