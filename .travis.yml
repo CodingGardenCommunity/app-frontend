@@ -15,7 +15,7 @@ jobs:
   include:
     ### START TEST STAGE ###
     - stage: test
-      script: start-server-and-test serve :8080 test:headless
+      script: npm run lint && npm run ci
     ### END TEST STAGE ###
     ### START DEPLOY STAGE ###
     - stage: deploy
