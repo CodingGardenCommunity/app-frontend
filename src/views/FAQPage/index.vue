@@ -1,5 +1,5 @@
 <template>
-  <div class="view-container">
+  <div class="page view-container">
     <FAQList />
   </div>
 </template>

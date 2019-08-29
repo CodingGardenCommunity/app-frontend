@@ -1,5 +1,5 @@
 <template>
-  <ul class="data-list faq-data-list">
+  <ul v-if="dataItems.length" class="data-list faq-data-list">
     <li v-for="(item, index) in dataItems" :key="index" class="data-item faq-data-item initBorder" :class="{ isClosed: !item.isOpen }">
       <TheQuestion :question="item.question" :toggleAccordion="toggleAccordion" />
       <TheAnswer :answer="item.answer" />
@@ -30,7 +30,7 @@ export default {
   },
 
   created() {
-    fetch('http://kyojingames.com:3005/faq')
+    fetch('https://api-dev.coding.garden/faq')
       .then(n => n.json())
       .then(json => {
         this.dataItems = json.map(n => ({
