@@ -11,7 +11,7 @@
     "test:headless": "cypress run",
     "ci:dev": "start-server-and-test serve :8080 test",
     "ci": "start-server-and-test serve :8080 test:headless",
-    "postinstall": "patch-package"
+    "postinstall": "npx patch-package"
   },
   "husky": {
     "hooks": {
