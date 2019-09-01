@@ -10,7 +10,8 @@
     "test": "cypress open",
     "test:headless": "cypress run",
     "ci:dev": "start-server-and-test serve :8080 test",
-    "ci": "start-server-and-test serve :8080 test:headless"
+    "ci": "start-server-and-test serve :8080 test:headless",
+    "postinstall": "patch-package"
   },
   "husky": {
     "hooks": {
@@ -42,6 +43,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-vue": "^5.0.0",
     "husky": "^2.7.0",
+    "patch-package": "^6.1.2",
     "prettier": "^1.18.2",
     "start-server-and-test": "^1.10.0",
     "vue-template-compiler": "^2.6.10"
