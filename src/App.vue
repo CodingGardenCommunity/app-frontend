@@ -5,7 +5,7 @@
         |||
       </router-link>
       <div id="filter-by">
-        <div class="label">filter by:</div>
+        <div class="label">Filter by:</div>
         <Leaves />
       </div>
       <div id="search">
@@ -13,34 +13,19 @@
       </div>
     </div>
     <router-view />
-    <div id="bottomnav">
-      <router-link to="/videos">
-        <img src="videos-icon.svg" /><br />
-        Videos
-      </router-link>
-      <router-link to="/history">
-        <img src="history-icon.svg" /><br />
-        History
-      </router-link>
-      <router-link to="/faq">
-        <img src="faq-icon.svg" /><br />
-        FAQ
-      </router-link>
-      <router-link to="/contributors">
-        <img src="contributors-icon.svg" /><br />
-        Contributors
-      </router-link>
-    </div>
+    <TheFooter />
   </div>
 </template>
 
 <script>
 import Leaves from './components/Leaves.vue';
+import TheFooter from './components/Layout/TheFooter.vue';
 
 export default {
   name: 'App',
   components: {
     Leaves,
+    TheFooter,
   },
 };
 </script>
@@ -108,20 +93,5 @@ body {
 }
 #topnav > #search > input::placeholder {
   color: white;
-}
-#bottomnav {
-  display: flex;
-  min-height: 80px;
-  background-color: #2c3e50;
-  flex: 0;
-  color: white;
-}
-#bottomnav > a {
-  flex: 1;
-  text-align: center;
-  font-size: 10px;
-  color: white;
-  text-decoration: none;
-  padding-top: 25px;
 }
 </style>
