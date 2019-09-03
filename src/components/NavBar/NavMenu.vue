@@ -25,7 +25,6 @@ export default {
       ],
     };
   },
-  props: {},
 };
 </script>
 
@@ -54,11 +53,23 @@ export default {
   margin-left: 8px;
 }
 .nav-menu > div > a {
-  color: #231F20;
-  background-color: #DDD;
+  color: #231f20;
+  background-color: #ddd;
 }
 .nav-menu > div > a:hover {
-  color: #DDD;
-  background-color: #231F20;
+  color: #ddd;
+  background-color: #231f20;
+}
+
+.data-item {
+  border: 1px solid black;
+  padding: 2px;
+  margin-bottom: 8px;
+  font-size: 10px;
+}
+.data-item > div {
+  border: 1px solid #ddd;
+  padding: 2px;
+  margin: 2px;
 }
 </style>
