@@ -24,6 +24,12 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 /* temporary styles */
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Roboto;
+}
+
 .app-container {
   padding: 0 53px;
   height: calc(100% - 53px);

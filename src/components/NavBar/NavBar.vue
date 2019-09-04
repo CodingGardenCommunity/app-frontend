@@ -38,12 +38,6 @@ export default {
 </script>
 
 <style scoped>
-body {
-  padding: 0;
-  margin: 0;
-  font-family: Roboto;
-}
-
 .topnav {
   background-color: #ddd;
   display: -webkit-box;
