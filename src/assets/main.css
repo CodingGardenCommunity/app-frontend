@@ -1,0 +1,12 @@
+:root {
+  --dark_color: #231f20;
+  --grey_color: #777;
+  --light_color: #ddd;
+
+  --width_height: 2.65rem;
+  --spacing: 0.4rem;
+}
+
+html {
+  font-size: 20px;
+}

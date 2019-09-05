@@ -38,38 +38,40 @@ export default {
 </script>
 
 <style scoped>
+@import url('../../../assets/main.css');
+
 .topnav {
-  background-color: #ddd;
+  background-color: var(--light_color);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 53px;
-  color: #777;
+  height: var(--width_height);
+  color: var(--grey_color);
 }
 
 .topnav-icon {
-  min-width: 53px;
-  line-height: 53px;
+  min-width: var(--width_height);
+  line-height: var(--width_height);
   text-align: center;
-  font-size: 2em;
+  font-size: 1.6rem;
 }
 
 .topnav-icon:hover {
   cursor: pointer;
-  background-color: #231f20;
-  color: #ddd;
+  background-color: var(--dark_color);
+  color: var(--light_color);
 }
 .topnav-logo {
-  min-width: 53px;
-  line-height: 53px;
+  min-width: var(--width_height);
+  line-height: var(--width_height);
   text-align: center;
   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/373280/logo.svg) 0px center no-repeat;
-  background-size: 42.5802px;
+  background-size: 2.12903rem;
 }
 
 .topnav-collapse-wrapper {
-  line-height: 53px;
-  font-size: 1.2em;
+  line-height: var(--width_height);
+  font-size: 0.96rem;
   margin: 0;
   white-space: nowrap;
   -webkit-box-flex: 1;
@@ -84,27 +86,27 @@ export default {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  color: #231f20;
+  color: var(--dark_color);
   font-size: 1.2em;
 }
 
 .topnav-filter-label {
   min-width: 20%;
-  line-height: 53px;
+  line-height: var(--width_height);
   text-align: right;
 }
 
 .topnav-filter-label:before {
-  color: #777;
+  color: var(--grey_color);
   content: 'filter by:';
-  font-size: 0.9em;
+  font-size: 0.72rem;
 }
 
 #fixed-menu {
   display: none;
   position: fixed;
-  background-color: #ddd;
-  top: 53px;
+  background-color: var(--light_color);
+  top: var(--width_height);
   left: 0;
   z-index: 1000;
 }

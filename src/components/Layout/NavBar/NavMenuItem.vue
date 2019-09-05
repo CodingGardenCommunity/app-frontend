@@ -22,30 +22,32 @@ export default {
 </script>
 
 <style scoped>
+@import url('../../../assets/main.css');
+
 .nav-item {
   display: flex;
   flex-direction: row;
   text-decoration: none;
-  font-size: 20px;
-  padding: 8px 8px 8px 0;
+  font-size: 1rem;
+  padding: var(--spacing) var(--spacing) var(--spacing) 0;
   height: 25px;
   line-height: 25px;
 }
 .icon {
-  min-width: 53px;
+  min-width: var(--width_height);
   text-align: center;
   font-size: 1.2em;
 }
 .nav-text {
   text-decoration: none;
-  margin-left: 8px;
+  margin-left: var(--spacing);
 }
 .nav-item {
-  color: #231f20;
-  background-color: #ddd;
+  color: var(--dark_color);
+  background-color: var(--light_color);
 }
 .nav-item:hover {
-  color: #ddd;
-  background-color: #231f20;
+  color: var(--light_color);
+  background-color: var(--dark_color);
 }
 </style>
