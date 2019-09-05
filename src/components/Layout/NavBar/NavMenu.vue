@@ -1,19 +1,19 @@
 <template>
   <div class="nav-menu">
     <div v-for="(menuItem, index) in menuData" :key="index" class="menu-item">
-      <router-link :to="menuItem.route">
-        <div class="icon">
-          <i class="fa" :class="menuItem.faClass"></i>
-        </div>
-        <span>{{ menuItem.label }}</span>
-      </router-link>
+      <NavMenuItem :item="menuItem" />
     </div>
   </div>
 </template>
 
 <script>
+import NavMenuItem from './NavMenuItem.vue';
+
 export default {
   name: 'NavMenu',
+  components: {
+    NavMenuItem,
+  },
   data() {
     return {
       sidebarOpen: false,
@@ -33,43 +33,5 @@ export default {
 .nav-menu {
   display: flex;
   flex-direction: column;
-}
-.nav-menu > div > a {
-  display: flex;
-  flex-direction: row;
-  text-decoration: none;
-  font-size: 20px;
-  padding: 8px 8px 8px 0;
-  height: 25px;
-  line-height: 25px;
-}
-.nav-menu > div > a > .icon {
-  min-width: 53px;
-  text-align: center;
-  font-size: 1.2em;
-}
-.nav-menu > div > a > span {
-  text-decoration: none;
-  margin-left: 8px;
-}
-.nav-menu > div > a {
-  color: #231f20;
-  background-color: #ddd;
-}
-.nav-menu > div > a:hover {
-  color: #ddd;
-  background-color: #231f20;
-}
-
-.data-item {
-  border: 1px solid black;
-  padding: 2px;
-  margin-bottom: 8px;
-  font-size: 10px;
-}
-.data-item > div {
-  border: 1px solid #ddd;
-  padding: 2px;
-  margin: 2px;
 }
 </style>

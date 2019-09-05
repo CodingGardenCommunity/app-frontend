@@ -47,20 +47,19 @@ export default {
   color: #777;
 }
 
-.topnav > .topnav-icon {
+.topnav-icon {
   min-width: 53px;
   line-height: 53px;
   text-align: center;
   font-size: 2em;
 }
 
-.topnav > .topnav-icon:hover {
+.topnav-icon:hover {
   cursor: pointer;
   background-color: #231f20;
   color: #ddd;
 }
-
-.topnav > .topnav-logo {
+.topnav-logo {
   min-width: 53px;
   line-height: 53px;
   text-align: center;
@@ -68,7 +67,7 @@ export default {
   background-size: 42.5802px;
 }
 
-.topnav > .topnav-collapse-wrapper {
+.topnav-collapse-wrapper {
   line-height: 53px;
   font-size: 1.2em;
   margin: 0;
@@ -81,7 +80,7 @@ export default {
   display: flex;
 }
 
-.topnav > .topnav-collapse-wrapper > .topnav-app-name {
+.topnav-app-name {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -89,43 +88,16 @@ export default {
   font-size: 1.2em;
 }
 
-.topnav > .topnav-collapse-wrapper > .topnav-filter-label {
+.topnav-filter-label {
   min-width: 20%;
   line-height: 53px;
   text-align: right;
 }
 
-.topnav > .topnav-collapse-wrapper > .topnav-filter-label:before {
+.topnav-filter-label:before {
   color: #777;
   content: 'filter by:';
   font-size: 0.9em;
-}
-
-.topnav > .topnav-collapse-wrapper > .topnav-filter-content {
-  -webkit-box-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  line-height: 53px;
-  text-align: left;
-  padding-left: 16px;
-}
-
-.topnav > .topnav-collapse-wrapper > .topnav-filter-content > i:before {
-  font-size: 0.9em;
-}
-
-.topnav > .topnav-circle-icon {
-  min-width: 53px;
-  line-height: 53px;
-  text-align: center;
-  font-size: 1.7em;
-}
-
-.topnav > .topnav-settings-icon {
-  font-size: 1.7em;
-  min-width: 53px;
-  line-height: 53px;
-  text-align: center;
 }
 
 #fixed-menu {
