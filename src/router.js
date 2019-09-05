@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import History from './views/History.vue';
-import FAQ from './views/FAQ.vue';
+import FAQPage from './views/FAQPage/index.vue';
 import Videos from './views/Videos.vue';
 import Contributors from './views/Contributors.vue';
 
@@ -24,7 +24,7 @@ export default new Router({
     {
       path: '/faq',
       name: 'faq',
-      component: FAQ,
+      component: FAQPage,
     },
     {
       path: '/videos',
