@@ -6,7 +6,10 @@
       class="data-item faq-data-item initBorder"
       v-for="(item, index) in dataItems"
     >
-      <TheQuestion :question="item.question" :toggleAccordion="toggleAccordion" />
+      <TheQuestion
+        :question="item.question"
+        :toggleAccordion="toggleAccordion"
+      />
       <TheAnswer :answer="item.answer" />
     </li>
   </ul>
