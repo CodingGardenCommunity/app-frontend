@@ -1,6 +1,7 @@
 {
   "name": "app-frontend",
   "version": 2,
+  "scope": "coding-garden-community",
   "builds": [{
     "src": "dist/**",
     "use": "@now/static"

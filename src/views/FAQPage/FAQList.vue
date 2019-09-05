@@ -30,7 +30,7 @@ export default {
   },
 
   created() {
-    fetch('https://api-dev.coding.garden/faq')
+    fetch('https://api-dev.codinggarden.community/faq')
       .then(n => n.json())
       .then(json => {
         this.dataItems = json.map(n => ({
