@@ -1,10 +1,9 @@
-/* eslint-disable no-undef */
-describe('App >', () => {
+describe('App component', () => {
   beforeEach(() => {
     cy.visit('/');
   });
 
-  it('Should .. ', () => {
+  it('Should have 3 children', () => {
     cy.get('#app')
       .children()
       .should('have.length', 3);
