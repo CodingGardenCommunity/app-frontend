@@ -1,0 +1,179 @@
+diff --git a/node_modules/cypress/lib/exec/spawn.js b/node_modules/cypress/lib/exec/spawn.js
+index ed13727..12e3439 100644
+--- a/node_modules/cypress/lib/exec/spawn.js
++++ b/node_modules/cypress/lib/exec/spawn.js
+@@ -13,8 +13,8 @@ var state = require('../tasks/state');
+ var xvfb = require('./xvfb');
+ 
+ var _require = require('../errors'),
+-    throwFormErrorText = _require.throwFormErrorText,
+-    errors = _require.errors;
++  throwFormErrorText = _require.throwFormErrorText,
++  errors = _require.errors;
+ 
+ var isXlibOrLibudevRe = /^(?:Xlib|libudev)/;
+ var isHighSierraWarningRe = /\*\*\* WARNING/;
+@@ -23,7 +23,7 @@ var isRenderWorkerRe = /\.RenderWorker-/;
+ var GARBAGE_WARNINGS = [isXlibOrLibudevRe, isHighSierraWarningRe, isRenderWorkerRe];
+ 
+ var isGarbageLineWarning = function isGarbageLineWarning(str) {
+-  return _.some(GARBAGE_WARNINGS, function (re) {
++  return _.some(GARBAGE_WARNINGS, function(re) {
+     return re.test(str);
+   });
+ };
+@@ -82,16 +82,16 @@ module.exports = {
+       dev: false,
+       env: process.env,
+       detached: false,
+-      stdio: getStdio(needsXvfb)
++      stdio: getStdio(needsXvfb),
+     });
+ 
+     var spawn = function spawn() {
+       var overrides = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+ 
+-      return new Promise(function (resolve, reject) {
++      return new Promise(function(resolve, reject) {
+         _.defaults(overrides, {
+           onStderrData: false,
+-          electronLogging: false
++          electronLogging: false,
+         });
+ 
+         if (options.dev) {
+@@ -102,7 +102,7 @@ module.exports = {
+         }
+ 
+         var onStderrData = overrides.onStderrData,
+-            electronLogging = overrides.electronLogging;
++          electronLogging = overrides.electronLogging;
+ 
+         var envOverrides = util.getEnvOverrides();
+         var electronArgs = _.clone(args);
+@@ -135,31 +135,51 @@ module.exports = {
+ 
+         var child = cp.spawn(executable, electronArgs, stdioOptions);
+ 
+-        child.on('close', resolve);
+-        child.on('error', reject);
++        // child.on('close', resolve);
++        // child.on('error', reject);
++
++        // if stdio options is set to 'pipe', then
++        //   we should set up pipes:
++        //  process STDIN (read stream) => child STDIN (writeable)
++        //  child STDOUT => process STDOUT
++        //  child STDERR => process STDERR with additional filtering
++        if (child.stdin) {
++          debug('piping process STDIN into child STDIN');
++          process.stdin.pipe(child.stdin);
++        }
++
++        if (child.stdout) {
++          debug('piping child STDOUT to process STDOUT');
++          child.stdout.pipe(process.stdout);
++        }
+ 
+         child.stdin && child.stdin.pipe(process.stdin);
+         child.stdout && child.stdout.pipe(process.stdout);
+ 
+         // if this is defined then we are manually piping for linux
+         // to filter out the garbage
+-        child.stderr && child.stderr.on('data', function (data) {
+-          var str = data.toString();
+ 
+-          // bail if this is warning line garbage
+-          if (isGarbageLineWarning(str)) {
+-            return;
+-          }
++        // child.stderr &&
++        if (child.stderr) {
++          debug('piping child STDERR to process STDERR');
++          child.stderr.on('data', function(data) {
++            var str = data.toString();
+ 
+-          // if we have a callback and this explictly returns
+-          // false then bail
+-          if (onStderrData && onStderrData(str) === false) {
+-            return;
+-          }
++            // bail if this is warning line garbage
++            if (isGarbageLineWarning(str)) {
++              return;
++            }
+ 
+-          // else pass it along!
+-          process.stderr.write(data);
+-        });
++            // if we have a callback and this explictly returns
++            // false then bail
++            if (onStderrData && onStderrData(str) === false) {
++              return;
++            }
++
++            // else pass it along!
++            process.stderr.write(data);
++          });
++        }
+ 
+         // https://github.com/cypress-io/cypress/issues/1841
+         // In some versions of node, it will throw on windows
+@@ -167,7 +187,7 @@ module.exports = {
+         // into the child process. unpiping does not seem
+         // to have any effect. so we're just catching the
+         // error here and not doing anything.
+-        process.stdin.on('error', function (err) {
++        process.stdin.on('error', function(err) {
+           if (err.code === 'EPIPE') {
+             return;
+           }
+@@ -182,7 +202,10 @@ module.exports = {
+     };
+ 
+     var spawnInXvfb = function spawnInXvfb() {
+-      return xvfb.start().then(userFriendlySpawn).finally(xvfb.stop);
++      return xvfb
++        .start()
++        .then(userFriendlySpawn)
++        .finally(xvfb.stop);
+     };
+ 
+     var userFriendlySpawn = function userFriendlySpawn(linuxWithDisplayEnv) {
+@@ -208,19 +231,21 @@ module.exports = {
+             if (!debugElectron.enabled) {
+               return false;
+             }
+-          }
++          },
+         });
+       }
+ 
+-      return spawn(overrides).then(function (code) {
+-        if (code !== 0 && brokenGtkDisplay) {
+-          util.logBrokenGtkDisplayWarning();
++      return spawn(overrides)
++        .then(function(code) {
++          if (code !== 0 && brokenGtkDisplay) {
++            util.logBrokenGtkDisplayWarning();
+ 
+-          return spawnInXvfb();
+-        }
++            return spawnInXvfb();
++          }
+ 
+-        return code;
+-      }).catch(throwFormErrorText(errors.unexpected));
++          return code;
++        })
++        .catch(throwFormErrorText(errors.unexpected));
+     };
+ 
+     if (needsXvfb) {
+@@ -233,5 +258,5 @@ module.exports = {
+     var linuxWithDisplayEnv = util.isPossibleLinuxWithIncorrectDisplay();
+ 
+     return userFriendlySpawn(linuxWithDisplayEnv);
+-  }
++  },
+ };

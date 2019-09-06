@@ -5,7 +5,7 @@
         |||
       </router-link>
       <div id="filter-by">
-        <div class="label">Filter by:</div>
+        <div class="label">filter by:</div>
         <Leaves />
       </div>
       <div id="search">
