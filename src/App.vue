@@ -25,6 +25,8 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('./assets/main.css');
+
 /* temporary styles */
 body {
   margin: 0;
@@ -33,12 +35,22 @@ body {
   font-family: Roboto;
 }
 
-.app-container {
-  padding: 0 53px;
-  height: calc(100% - 53px);
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--dark_color);
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
 }
 
-.app-container > div {
-  height: calc(100% - 53px);
+.app-container {
+  padding: 0 var(--width_height);
+  height: calc(100% - var(--width_height));
+}
+
+.router-view {
+  height: calc(100% - var(--width_height));
 }
 </style>
