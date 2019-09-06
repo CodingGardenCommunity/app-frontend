@@ -35,7 +35,7 @@ export default {
   },
 
   created() {
-    fetch('http://kyojingames.com:3005/faq')
+    fetch('https://api-dev.coding.garden/faq')
       .then(n => n.json())
       .then(json => {
         this.dataItems = json.map(n => ({

@@ -4,7 +4,7 @@ language: node_js
 notifications:
   email: false
 node_js:
-- stable
+  - stable
 cache: npm
 stages:
   - test
@@ -15,7 +15,7 @@ jobs:
   include:
     ### START TEST STAGE ###
     - stage: test
-      script: npm run lint && npm run test:unit
+      script: npm run lint
     ### END TEST STAGE ###
     ### START DEPLOY STAGE ###
     - stage: deploy
