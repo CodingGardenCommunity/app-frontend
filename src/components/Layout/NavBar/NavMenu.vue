@@ -16,7 +16,6 @@ export default {
   },
   data() {
     return {
-      sidebarOpen: false,
       menuData: [
         { label: 'Videos', route: '/videos', faClass: 'fa-film' },
         { label: 'FAQ', route: '/faq', faClass: 'fa-question-circle-o' },
