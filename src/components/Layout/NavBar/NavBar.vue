@@ -3,9 +3,9 @@
     <div id="menu_button" class="topnav-icon" @click="toggleMenu">
       <i class="fa fa-navicon"></i>
     </div>
-    <div v-if="menuOpen" id="fixed-menu">
-      <NavMenu />
-    </div>
+    <transition name="slide">
+      <NavMenu v-if="menuOpen" id="fixed-menu" />
+    </transition>
     <div class="topnav-logo"></div>
     <div class="topnav-collapse-wrapper">
       <div class="topnav-app-name">Community App</div>
@@ -89,6 +89,27 @@ export default {
   font-size: 1.2em;
 }
 
+.slide-enter {
+  transform: translateX(-100%);
+}
+.slide-enter-to {
+  transform: translateX(0);
+}
+.slide-enter-active {
+  position: absolute;
+}
+
+.slide-leave {
+  transform: translateX(0);
+}
+.slide-leave-to {
+  transform: translateX(-100%);
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.5s ease-in-out;
+}
 #fixed-menu {
   position: fixed;
   top: var(--width_height);
