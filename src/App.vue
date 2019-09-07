@@ -38,7 +38,7 @@ body {
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--dark_color);
+  color: var(--smoky_dark);
   display: flex;
   flex-direction: column;
   width: 100vw;

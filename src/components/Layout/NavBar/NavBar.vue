@@ -20,7 +20,7 @@ export default {
   name: 'NavBar',
   data() {
     return {
-      menuOpen: true,
+      menuOpen: false,
     };
   },
   methods: {
