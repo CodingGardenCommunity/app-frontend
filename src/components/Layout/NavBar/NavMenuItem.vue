@@ -43,11 +43,10 @@ export default {
   margin-left: var(--spacing);
 }
 .nav-item {
-  color: var(--dark_color);
-  background-color: var(--light_color);
+  background-color: var(--medium_jungle_green);
 }
 .nav-item:hover {
-  color: var(--light_color);
-  background-color: var(--dark_color);
+  color: var(--medium_jungle_green);
+  background-color: var(--green_sheen);
 }
 </style>

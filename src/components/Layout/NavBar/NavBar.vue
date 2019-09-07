@@ -3,7 +3,7 @@
     <div id="menu_button" class="topnav-icon" @click="toggleMenu">
       <i class="fa fa-navicon"></i>
     </div>
-    <div :class="menuOpen ? 'open' : ''" id="fixed-menu">
+    <div v-if="menuOpen" id="fixed-menu">
       <NavMenu />
     </div>
     <div class="topnav-logo"></div>
@@ -20,7 +20,7 @@ export default {
   name: 'NavBar',
   data() {
     return {
-      menuOpen: false,
+      menuOpen: true,
     };
   },
   methods: {
@@ -41,12 +41,12 @@ export default {
 @import url('../../../assets/main.css');
 
 .topnav {
-  background-color: var(--light_color);
+  background-color: var(--medium_jungle_green);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   height: var(--width_height);
-  color: var(--grey_color);
+  color: var(--green_sheen);
 }
 
 .topnav-icon {
@@ -58,8 +58,8 @@ export default {
 
 .topnav-icon:hover {
   cursor: pointer;
-  background-color: var(--dark_color);
-  color: var(--light_color);
+  color: var(--medium_jungle_green);
+  background-color: var(--green_sheen);
 }
 .topnav-logo {
   min-width: var(--width_height);
@@ -86,34 +86,17 @@ export default {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  color: var(--dark_color);
   font-size: 1.2em;
 }
 
-.topnav-filter-label {
-  min-width: 20%;
-  line-height: var(--width_height);
-  text-align: right;
-}
-
-.topnav-filter-label:before {
-  color: var(--grey_color);
-  content: 'filter by:';
-  font-size: 0.72rem;
-}
-
 #fixed-menu {
-  display: none;
   position: fixed;
-  background-color: var(--light_color);
   top: var(--width_height);
   left: 0;
   z-index: 1000;
-}
-
-#fixed-menu.open {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  background-color: var(--medium_jungle_green);
 }
 </style>

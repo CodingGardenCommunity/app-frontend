@@ -1,7 +1,9 @@
 :root {
-  --dark_color: #231f20;
-  --grey_color: #777;
-  --light_color: #ddd;
+  --smoky_black: #100b00;
+  --medium_jungle_green: #1c3738;
+  --umber: #6c5a49;
+  --green_sheen: #77bfa3;
+  --snow: #fffcf9;
 
   --width_height: 2.65rem;
   --spacing: 0.4rem;
