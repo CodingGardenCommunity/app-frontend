@@ -3,7 +3,7 @@ import Router from 'vue-router';
 import History from './views/History.vue';
 import FAQPage from './views/FAQPage/index.vue';
 import Videos from './views/Videos.vue';
-import Contributors from './views/Contributors.vue';
+import Contributors from './views/ContributorsPage/Contributors.vue';
 
 Vue.use(Router);
 
