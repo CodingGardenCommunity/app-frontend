@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Menu from './views/Menu.vue';
 import History from './views/History.vue';
 import FAQPage from './views/FAQPage/index.vue';
 import Videos from './views/Videos.vue';
@@ -16,11 +15,6 @@ export default new Router({
       path: '/',
       name: 'default',
       component: Videos,
-    },
-    {
-      path: '/menu',
-      name: 'menu',
-      component: Menu,
     },
     {
       path: '/history',
