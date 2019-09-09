@@ -1,5 +1,9 @@
 <template>
-  <div class="faq-question" @click="toggleAccordion(question)" v-text="question" />
+  <div
+    class="faq-question"
+    @click="toggleAccordion(question)"
+    v-text="question"
+  />
 </template>
 
 <script>

@@ -3,12 +3,20 @@ module.exports = {
   env: {
     node: true,
   },
-  plugins: ['prettier'],
   extends: ['plugin:vue/essential', '@vue/airbnb', 'prettier', 'plugin:cypress/recommended'],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'prettier/prettier': 'error',
+    'vue/max-attributes-per-line': [
+      'error',
+      {
+        singleline: 2,
+        multiline: {
+          max: 1,
+          allowFirstLine: false,
+        },
+      },
+    ],
   },
   parserOptions: {
     parser: 'babel-eslint',
