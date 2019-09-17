@@ -84,7 +84,7 @@ case "$env" in
       NODE_ENV=development
     fi
     if [ -z "$DEPLOY_ALIAS" ]; then
-      DEPLOY_ALIAS=web-dev.coding.garden
+      DEPLOY_ALIAS=web-dev.codinggarden.community
     fi
     ;;
   production)
@@ -92,7 +92,7 @@ case "$env" in
       NODE_ENV=production
     fi
     if [ -z "$DEPLOY_ALIAS" ]; then
-      DEPLOY_ALIAS=web.coding.garden
+      DEPLOY_ALIAS=codinggarden.community
     fi
     ;;
   *)
