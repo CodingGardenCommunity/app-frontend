@@ -1,6 +1,10 @@
 <template>
   <div class="nav-menu">
-    <div v-for="(menuItem, index) in menuData" :key="index" class="menu-item">
+    <div
+      v-for="(menuItem, index) in menuData"
+      :key="index"
+      class="menu-item"
+    >
       <NavMenuItem :item="menuItem" />
     </div>
   </div>

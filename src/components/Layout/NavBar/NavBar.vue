@@ -1,6 +1,10 @@
 <template>
   <div class="topnav" @mouseleave="closeMenu">
-    <div id="menu_button" class="topnav-icon" @click="toggleMenu">
+    <div
+      id="menu_button"
+      class="topnav-icon"
+      @click="toggleMenu"
+    >
       <i class="fa fa-navicon"></i>
     </div>
     <transition name="slide">
