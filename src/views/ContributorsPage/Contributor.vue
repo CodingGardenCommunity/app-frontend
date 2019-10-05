@@ -1,18 +1,19 @@
 <template>
   <div class="contributor">
     <img v-bind:src="data.attributes.image" class="profile" />
-    <Leaves :teams="data.attributes.teamIDs" />
+    <span>{{ data.attributes.name }}</span>
+    <Leaves :teams="data.attributes.teamIds" />
+    <br />
     <p>
       <i class="fa fa-github-square"></i>
       {{ data.attributes.username }}
     </p>
-    <p>{{ data.attributes.name }}</p>
     <hr />
   </div>
 </template>
 
 <script>
-import Leaves from '../../components/Leaves.vue';
+import Leaves from '../../components/Leaves/Leaves.vue';
 
 export default {
   name: 'Contributor',
