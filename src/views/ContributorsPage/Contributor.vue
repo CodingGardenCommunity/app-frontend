@@ -5,8 +5,10 @@
     <Leaves :teams="data.attributes.teamIds" />
     <br />
     <p>
-      <i class="fa fa-github-square"></i>
-      {{ data.attributes.username }}
+      <a v-bind:href="`https://github.com/${data.attributes.username}`">
+        <i class="fa fa-github-square"></i>
+        <span>{{ data.attributes.username }}</span>
+      </a>
     </p>
     <hr />
   </div>
@@ -32,5 +34,10 @@ export default {
   width: var(--width_height);
   height: var(--width_height);
   border-radius: 50%;
+}
+
+a {
+  color: black;
+  text-decoration: none;
 }
 </style>
