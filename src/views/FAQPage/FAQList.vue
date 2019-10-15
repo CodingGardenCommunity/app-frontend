@@ -1,19 +1,21 @@
 <template>
-  <ul class="data-list faq-data-list">
-    <li
-      :class="{ isClosed: !item.isOpen }"
-      :key="index"
-      class="data-item faq-data-item initBorder"
-      v-for="(item, index) in dataItems"
-    >
-      <TheQuestion :question="item.question" :toggleAccordion="toggleAccordion" />
-      <TheAnswer :answer="item.answer" />
-    </li>
-  </ul>
+  <div>
+    <ul :v-if="FAQs.length" class="data-list faq-data-list">
+      <li
+        :class="{ isClosed: !item.isOpen }"
+        :key="index"
+        class="data-item faq-data-item initBorder"
+        v-for="(item, index) in FAQs"
+      >
+        <TheQuestion :question="item.question" :toggleAccordion="toggleAccordion" />
+        <TheAnswer :answer="item.answer" />
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
-import fetch from 'node-fetch';
+import { mapActions } from 'vuex';
 import TheQuestion from './TheQuestion.vue';
 import TheAnswer from './TheAnswer.vue';
 
@@ -23,11 +25,6 @@ export default {
     TheQuestion,
     TheAnswer,
   },
-  data() {
-    return {
-      dataItems: [],
-    };
-  },
 
   props: {
     question: String,
@@ -35,25 +32,33 @@ export default {
   },
 
   created() {
-    fetch('https://api-dev.codinggarden.community/faqs')
-      .then(n => n.json())
-      .then(json => {
-        this.dataItems = json.map(n => ({
-          ...n.attributes,
-          isOpen: false,
-        }));
-      });
+    this.faq();
+  },
+
+  computed: {
+    FAQs: {
+      get() {
+        return this.$store.state.FAQs.FAQs;
+      },
+
+      set(updated) {
+        this.$store.state.FAQs.FAQs = updated;
+      },
+    },
   },
 
   methods: {
     toggleAccordion(question) {
-      this.dataItems = this.dataItems.map(e => {
+      this.FAQs = this.FAQs.map(e => {
         if (e.question === question) {
           return { ...e, isOpen: !e.isOpen };
         }
         return { ...e, isOpen: false };
       });
     },
+    ...mapActions({
+      faq: 'FAQs/addFAQsAction',
+    }),
   },
 };
 </script>
