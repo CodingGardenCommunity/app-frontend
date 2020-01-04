@@ -41,8 +41,6 @@ body {
   color: var(--smoky_dark);
   display: flex;
   flex-direction: column;
-  width: 100vw;
-  height: 100vh;
 }
 
 .app-container {
